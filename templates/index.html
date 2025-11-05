@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro Turret Moduler</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Turret Protection Checker</h1>
+        <label for="turret-select">Select a turret:</label>
+        <select id="turret-select">
+            <option value="" disabled selected>Select a turret</option>
+            {% for num, turret in turrets.items() %}
+                <option value="{{ num }}">{{ turret }}</option>
+            {% endfor %}
+        </select>
+        <button id="check-btn">Check Missing Turrets</button>
+
+        <h2>Missing Turrets:</h2>
+        <ul id="missing-turrets">
+            <!-- Missing turrets will be displayed here -->
+        </ul>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
